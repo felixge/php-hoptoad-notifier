@@ -270,8 +270,8 @@ class Services_Hoptoad
 			if (isset($entry['class']) && $entry['class'] == 'Services_Hoptoad') continue;
 
 			$line_node = $backtrace->addChild('line');
-			$line_node->addAttribute('file', $entry['file']);
-			$line_node->addAttribute('number', $entry['line']);
+			$line_node->addAttribute('file', isset($entry['file']) ? $entry['file'] : 'unknown');
+			$line_node->addAttribute('number', isset($entry['line']) ? $entry['line'] : 'unknown');
 			$line_node->addAttribute('method', $entry['function']);
 		}
 	}
